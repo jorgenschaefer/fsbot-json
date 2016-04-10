@@ -7,7 +7,7 @@
    (mapcar (lambda (ch)
              (or (encode-coding-char ch 'utf-8 'unicode)
                  "?"))
-           s)))
+           (decode-coding-string s 'undecided))))
 
 (with-current-buffer (url-retrieve-synchronously "http://gnufans.net/~fsbot/data/botbbdb")
   (goto-char (point-min))
